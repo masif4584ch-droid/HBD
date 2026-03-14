@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Happy Birthday Shakeela ❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:20px;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(45deg,#ff758c,#ff7eb3);
+color:white;
+overflow:hidden;
+}
+
+h1{
+font-size:34px;
+margin-top:20px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+}
+
+.photo img{
+width:220px;
+border-radius:20px;
+box-shadow:0 0 20px white;
+margin-top:10px;
+}
+
+.letter{
+margin-top:20px;
+font-size:20px;
+background:rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+min-height:140px;
+}
+
+button{
+margin-top:20px;
+padding:14px 30px;
+font-size:20px;
+background:#ff4081;
+border:none;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* video popup */
+
+#videoBox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+justify-content:center;
+align-items:center;
+}
+
+#videoBox video{
+width:90%;
+}
+
+/* rose animation */
+
+.petal{
+position:absolute;
+top:-10px;
+font-size:22px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎂 Happy Birthday Shakeela Ahmed ❤️</h1>
+
+<div class="photo">
+<img src="cake.jpg">
+</div>
+
+<div class="letter" id="text"></div>
+
+<button onclick="showVideo()">🎂 Cut Birthday Cake</button>
+
+</div>
+
+<!-- video -->
+
+<div id="videoBox">
+<video id="cakeVideo" controls>
+<source src="cake.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- typing sound -->
+
+<audio id="typeSound">
+<source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3">
+</audio>
+
+<script>
+
+let message=`💌 My Love Shakeela
+
+Aaj ka din meri zindagi ka sab se khoobsurat din hai,
+kyun ke aaj meri zindagi ki sab se pyari insaan ka birthday hai.
+
+Shakeela, tum meri zindagi ki khushi ho,
+meri dua ho aur meri har kamyabi ka reason ho.
+
+Allah tumhe hamesha khush rakhe
+aur hamari zindagi ko mohabbat se bhar de.
+
+❤️ Happy Birthday My Love ❤️`;
+  
+  <audio autoplay loop>
+<source src="birthday.mp3">
+</audio>
+
+let i=0;
+
+function typing(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+document.getElementById("typeSound").play();
+
+i++;
+
+setTimeout(typing,40);
+
+}
+
+}
+
+typing();
+
+function showVideo(){
+
+document.getElementById("videoBox").style.display="flex";
+
+document.getElementById("cakeVideo").play();
+
+}
+
+/* rose rain */
+
+setInterval(function(){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{petal.remove();},8000);
+
+},300);
+
+</script>
+
+</body>
+</html>
+
