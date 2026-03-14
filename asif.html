@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Happy Birthday Shakeela ❤️</title>
 
 <style>
 
 body{
 margin:0;
+padding:20px;
 font-family:Arial;
 text-align:center;
 background:linear-gradient(45deg,#ff758c,#ff7eb3);
@@ -15,64 +19,72 @@ overflow:hidden;
 }
 
 h1{
-margin-top:60px;
-font-size:50px;
-animation: glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{ text-shadow:0 0 10px white;}
-to{ text-shadow:0 0 40px yellow;}
-}
-
-.photo{
+font-size:34px;
 margin-top:20px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
 }
 
 .photo img{
 width:220px;
 border-radius:20px;
 box-shadow:0 0 20px white;
+margin-top:10px;
 }
 
 .letter{
-width:80%;
-margin:auto;
 margin-top:20px;
-font-size:24px;
+font-size:20px;
 background:rgba(255,255,255,0.2);
 padding:20px;
 border-radius:15px;
+min-height:140px;
 }
 
 button{
-margin-top:25px;
-padding:15px 35px;
-font-size:22px;
+margin-top:20px;
+padding:14px 30px;
+font-size:20px;
 background:#ff4081;
 border:none;
 color:white;
-border-radius:12px;
+border-radius:10px;
 cursor:pointer;
 }
 
-/* Rose petals */
+/* video popup */
+
+#videoBox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+justify-content:center;
+align-items:center;
+}
+
+#videoBox video{
+width:90%;
+}
+
+/* rose animation */
 
 .petal{
 position:absolute;
 top:-10px;
-color:#ff004c;
-font-size:24px;
-animation: fall linear infinite;
+font-size:22px;
+animation:fall linear infinite;
 }
 
 @keyframes fall{
-0%{
-transform:translateY(-10vh) rotate(0deg);
-}
-100%{
-transform:translateY(110vh) rotate(360deg);
-}
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
 }
 
 </style>
@@ -81,46 +93,82 @@ transform:translateY(110vh) rotate(360deg);
 
 <body>
 
+<div class="container">
+
 <h1>🎂 Happy Birthday Shakeela Ahmed ❤️</h1>
 
 <div class="photo">
+<img src="cake.jpg">
+</div>
 
-<!-- YAHAN APNI PHOTO LAGANI HAI -->
+<div class="letter" id="text"></div>
 
-<img src="photo.jpg">
+<button onclick="showVideo()">🎂 Cut Birthday Cake</button>
 
 </div>
 
-<div class="letter">
+<!-- video -->
 
-💌 **My Love Shakeela**
-
-Aaj ka din meri zindagi ka sab se khoobsurat din hai  
-kyun ke aaj meri zindagi ki sab se pyari insaan ka birthday hai.
-
-Shakeela, tum meri zindagi ki khushi ho, meri dua ho  
-aur meri har kamyabi ka reason ho.
-
-Allah tumhe hamesha khush rakhe  
-aur hamari zindagi ko mohabbat se bhar de.
-
-❤️ **Happy Birthday My Love**
-
+<div id="videoBox">
+<video id="cakeVideo" controls>
+<source src="cake.mp4" type="video/mp4">
+</video>
 </div>
 
-<button onclick="cake()">🎂 Cut Birthday Cake</button>
+<!-- typing sound -->
 
-<audio autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+<audio id="typeSound">
+<source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3">
 </audio>
 
 <script>
 
-function cake(){
-alert("🎂 Happy Birthday Shakeela ❤️ I Love You So Much");
+let message=`💌 My Love Shakeela
+
+Aaj ka din meri zindagi ka sab se khoobsurat din hai,
+kyun ke aaj meri zindagi ki sab se pyari insaan ka birthday hai.
+
+Shakeela, tum meri zindagi ki khushi ho,
+meri dua ho aur meri har kamyabi ka reason ho.
+
+Allah tumhe hamesha khush rakhe
+aur hamari zindagi ko mohabbat se bhar de.
+
+❤️ Happy Birthday My Love ❤️`;
+  
+  <audio autoplay loop>
+<source src="birthday.mp3">
+</audio>
+
+let i=0;
+
+function typing(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+document.getElementById("typeSound").play();
+
+i++;
+
+setTimeout(typing,40);
+
 }
 
-/* Rose petals animation */
+}
+
+typing();
+
+function showVideo(){
+
+document.getElementById("videoBox").style.display="flex";
+
+document.getElementById("cakeVideo").play();
+
+}
+
+/* rose rain */
 
 setInterval(function(){
 
@@ -144,3 +192,4 @@ setTimeout(()=>{petal.remove();},8000);
 
 </body>
 </html>
+
