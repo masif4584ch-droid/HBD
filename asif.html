@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Shakeela ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(45deg,#ff758c,#ff7eb3);
+color:white;
+overflow:hidden;
+}
+
+h1{
+margin-top:60px;
+font-size:50px;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px white;}
+to{ text-shadow:0 0 40px yellow;}
+}
+
+.photo{
+margin-top:20px;
+}
+
+.photo img{
+width:220px;
+border-radius:20px;
+box-shadow:0 0 20px white;
+}
+
+.letter{
+width:80%;
+margin:auto;
+margin-top:20px;
+font-size:24px;
+background:rgba(255,255,255,0.2);
+padding:20px;
+border-radius:15px;
+}
+
+button{
+margin-top:25px;
+padding:15px 35px;
+font-size:22px;
+background:#ff4081;
+border:none;
+color:white;
+border-radius:12px;
+cursor:pointer;
+}
+
+/* Rose petals */
+
+.petal{
+position:absolute;
+top:-10px;
+color:#ff004c;
+font-size:24px;
+animation: fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday Shakeela Ahmed ❤️</h1>
+
+<div class="photo">
+
+<!-- YAHAN APNI PHOTO LAGANI HAI -->
+
+<img src="photo.jpg">
+
+</div>
+
+<div class="letter">
+
+💌 **My Love Shakeela**
+
+Aaj ka din meri zindagi ka sab se khoobsurat din hai  
+kyun ke aaj meri zindagi ki sab se pyari insaan ka birthday hai.
+
+Shakeela, tum meri zindagi ki khushi ho, meri dua ho  
+aur meri har kamyabi ka reason ho.
+
+Allah tumhe hamesha khush rakhe  
+aur hamari zindagi ko mohabbat se bhar de.
+
+❤️ **Happy Birthday My Love**
+
+</div>
+
+<button onclick="cake()">🎂 Cut Birthday Cake</button>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+
+function cake(){
+alert("🎂 Happy Birthday Shakeela ❤️ I Love You So Much");
+}
+
+/* Rose petals animation */
+
+setInterval(function(){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{petal.remove();},8000);
+
+},300);
+
+</script>
+
+</body>
+</html>
